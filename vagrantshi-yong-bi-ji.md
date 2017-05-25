@@ -34,7 +34,6 @@ sudo yum install httpd  // 安装
 
 sudo systemctl start httpd.service    // 启动httpd
 systemctl status httpd.service        // 查看httpd状态
-
 ```
 
 ### 在Vagrantfile中配置同步目录
@@ -62,6 +61,10 @@ vagrant reload    // 重启虚拟机
 > ssh登录后，ifconfig查看ip
 > ping [ip]    // 测试
 > ```
+
+### web服务器
+
+![](/assets/import.png)
 
 
 
