@@ -27,15 +27,6 @@ vagrant reload    // 重启
 vagrant destroy    // 销毁当前项目虚拟机
 ```
 
-### 安装web服务器httpd
-
-```
-sudo yum install httpd  // 安装
-
-sudo systemctl start httpd.service    // 启动httpd
-systemctl status httpd.service        // 查看httpd状态
-```
-
 ### 在Vagrantfile中配置同步目录
 
 ```
@@ -62,9 +53,20 @@ vagrant reload    // 重启虚拟机
 > ping [ip]    // 测试
 > ```
 
-### web服务器
+### 打包自己的镜像box
 
-![](/assets/import.png)
+```
+// 先ssh到虚拟机删除一个文件，不删除新box会出现网络问题
+rm -rf /etc/udev/rules.d/70-persistent-net.rules
+// exit退出，打包
+vagrant package
+// 目录下会生成package.json,使用add添加box
+vagrant box add leon/centos-7 package.box
+// 查看box列表
+vagrant box list
+// 添加后可以删除生成的box
+rm -rf package.box
+```
 
 
 
