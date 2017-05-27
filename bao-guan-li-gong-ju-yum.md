@@ -3,8 +3,8 @@
 ```
 yum repolist       查看启用的仓库
 yum search [repo]  查找仓库
-yum install epel-release -y  添加epel仓库
-yum install https://centos7.iuscommunity.org/ius-release.rpm -y  添加ius仓库
+sudo yum install epel-release -y  添加epel仓库
+sudo yum install https://centos7.iuscommunity.org/ius-release.rpm -y  添加ius仓库
 ```
 
 #### 指令：
