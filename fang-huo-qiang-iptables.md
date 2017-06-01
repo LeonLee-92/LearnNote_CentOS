@@ -17,58 +17,60 @@
 #### 命令
 
 > ##### // 查看chain和chain下的rules
-
-> ##### sudo iptables -L --line-numbers  
+>
+> #### sudo iptables -L --line-numbers
 >
 > ##### // 查看INPUT这个chain下的rules
-
-> ##### sudo iptables -L INPUT --line-numbers   
+>
+> #### sudo iptables -L INPUT --line-numbers
 >
 > ##### // 查看INPUT这个chain下的rules，并显示统计流量
-
-> ##### sudo iptables -L INPUT --line-numbers  -v  
+>
+> #### sudo iptables -L INPUT --line-numbers  -v
 >
 > ##### // 对防火墙统计流量清零
-
-> ##### sudo iptables -Z  
+>
+> #### sudo iptables -Z
 >
 > ##### // 查看chain的policy和chain下rules的动作
 >
-> ##### sudo iptables --list-rules   
+> #### sudo iptables --list-rules
 >
 > ##### // 查看现有防火墙policy
-
-> ##### sudo iptables -S  
+>
+> #### sudo iptables -S
 >
 > ##### // 改变chain的policy
-
-> ##### sudo iptables -P 【chain】 【policy】   
+>
+> #### sudo iptables -P 【chain】 【policy】
 >
 > ##### // 在某chain下追加rule
-
-> ##### sudo iptables -A 【chain】 -s 【来源ip】 -j  【动作target】   
+>
+> #### sudo iptables -A 【chain】 -s 【来源ip】 -j  【动作target】
 >
 > ##### // 添加某网段规则
 >
-> ##### sudo iptables -A 【chain】 -s 192.168.33.0/24  -j  【动作target】  
+> #### sudo iptables -A 【chain】 -s 192.168.33.0/24  -j  【动作target】
 >
 > ##### //用例：在INPUT这个chain下追加规则，对192.168.33.xxx网段禁止使用tcp协议在80端口访问
 >
-> ##### sudo iptables -A INPUT -s 192.168.33.0/24 -p tcp --dport 80  -j  DROP
+> #### sudo iptables -A INPUT -s 192.168.33.0/24 -p tcp --dport 80  -j  DROP
 >
-> ##### //用例：插入到具体位置，将-A换为-I
+> ##### //用例：插入到具体位置
 >
-> ##### sudo iptables -I INPUT  2  -s 192.168.33.0/24 -p tcp --dport 80  -j  DROP
+> #### sudo iptables -I INPUT  2  -s 192.168.33.0/24 -p tcp --dport 80  -j  DROP
 >
 > ##### // 删除INPUT下的第2条rule
 >
-> ##### sudo iptables -D  INPUT  2
+> #### sudo iptables -D  INPUT  2
 >
 > ##### // 删除INPUT下所有规则
 >
-> ##### sudo iptables -F INPUT // 删除所有chain下的所有规则
+> #### sudo iptables -F INPUT 
 >
-> ##### sudo iptables -F
+> ##### // 删除所有chain下的所有规则
+>
+> #### sudo iptables -F
 
 #### 
 
