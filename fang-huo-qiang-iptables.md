@@ -19,7 +19,7 @@
 > #### 增加
 >
 > > ##### // 在某chain下追加rule
->
+> >
 > > #### sudo iptables -A 【chain】 -s 【来源ip】 -j  【动作target】
 > >
 > > ##### // 添加某网段规则
@@ -33,7 +33,7 @@
 > > ##### //用例：插入到具体位置
 > >
 > > #### sudo iptables -I INPUT  2  -s 192.168.33.0/24 -p tcp --dport 80  -j  DROP
-
+>
 > #### 删除
 >
 > > ##### // 删除INPUT下的第2条rule
@@ -51,9 +51,9 @@
 > #### 修改
 >
 > > ##### // 改变chain的policy
->
+> >
 > > #### sudo iptables -P 【chain】 【policy】
-
+>
 > #### 查看
 >
 > > ##### // 查看chain和chain下的rules
@@ -80,7 +80,7 @@
 > >
 > > #### sudo iptables -S
 
-#### 安装iptables-services用于使现有的规则持久化
+#### 使现有的规则持久化
 
 > 1. 安装sudo yun install iptables
 > 2. 启动sudo systemctl start iptables
