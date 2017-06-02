@@ -16,63 +16,69 @@
 
 #### 命令
 
-> ##### // 查看chain和chain下的rules
+> #### 增加
 >
-> #### sudo iptables -L --line-numbers
+> > ##### // 在某chain下追加rule
 >
-> ##### // 查看INPUT这个chain下的rules
->
-> #### sudo iptables -L INPUT --line-numbers
->
-> ##### // 查看INPUT这个chain下的rules，并显示统计流量
->
-> #### sudo iptables -L INPUT --line-numbers  -v
->
-> ##### // 对防火墙统计流量清零
->
-> #### sudo iptables -Z
->
-> ##### // 查看chain的policy和chain下rules的动作
->
-> #### sudo iptables --list-rules
->
-> ##### // 查看现有防火墙policy
->
-> #### sudo iptables -S
->
-> ##### // 改变chain的policy
->
-> #### sudo iptables -P 【chain】 【policy】
->
-> ##### // 在某chain下追加rule
->
-> #### sudo iptables -A 【chain】 -s 【来源ip】 -j  【动作target】
->
-> ##### // 添加某网段规则
->
-> #### sudo iptables -A 【chain】 -s 192.168.33.0/24  -j  【动作target】
->
-> ##### //用例：在INPUT这个chain下追加规则，对192.168.33.xxx网段禁止使用tcp协议在80端口访问
->
-> #### sudo iptables -A INPUT -s 192.168.33.0/24 -p tcp --dport 80  -j  DROP
->
-> ##### //用例：插入到具体位置
->
-> #### sudo iptables -I INPUT  2  -s 192.168.33.0/24 -p tcp --dport 80  -j  DROP
->
-> ##### // 删除INPUT下的第2条rule
->
-> #### sudo iptables -D  INPUT  2
->
-> ##### // 删除INPUT下所有规则
->
-> #### sudo iptables -F INPUT 
->
-> ##### // 删除所有chain下的所有规则
->
-> #### sudo iptables -F
+> > #### sudo iptables -A 【chain】 -s 【来源ip】 -j  【动作target】
+> >
+> > ##### // 添加某网段规则
+> >
+> > #### sudo iptables -A 【chain】 -s 192.168.33.0/24  -j  【动作target】
+> >
+> > ##### //用例：在INPUT这个chain下追加规则，对192.168.33.xxx网段禁止使用tcp协议在80端口访问
+> >
+> > #### sudo iptables -A INPUT -s 192.168.33.0/24 -p tcp --dport 80  -j  DROP
+> >
+> > ##### //用例：插入到具体位置
+> >
+> > #### sudo iptables -I INPUT  2  -s 192.168.33.0/24 -p tcp --dport 80  -j  DROP
 
-#### 
+> #### 删除
+>
+> > ##### // 删除INPUT下的第2条rule
+> >
+> > #### sudo iptables -D INPUT 2
+> >
+> > ##### // 删除INPUT下所有规则
+> >
+> > #### sudo iptables -F INPUT
+> >
+> > ##### // 删除所有chain下的所有规则
+> >
+> > #### sudo iptables -F
+>
+> #### 修改
+>
+> > ##### // 改变chain的policy
+>
+> > #### sudo iptables -P 【chain】 【policy】
+
+> #### 查看
+>
+> > ##### // 查看chain和chain下的rules
+> >
+> > #### sudo iptables -L --line-numbers
+> >
+> > ##### // 查看INPUT这个chain下的rules
+> >
+> > #### sudo iptables -L INPUT --line-numbers
+> >
+> > ##### // 查看INPUT这个chain下的rules，并显示统计流量
+> >
+> > #### sudo iptables -L INPUT --line-numbers  -v
+> >
+> > ##### // 对防火墙统计流量清零
+> >
+> > #### sudo iptables -Z
+> >
+> > ##### // 查看chain的policy和chain下rules的动作
+> >
+> > #### sudo iptables --list-rules
+> >
+> > ##### // 查看现有防火墙policy
+> >
+> > #### sudo iptables -S
 
 #### 安装iptables-services用于使现有的规则持久化
 
